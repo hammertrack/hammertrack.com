@@ -94,7 +94,7 @@ export function format(resp: unknown): Ban[] {
         // for saving time and bandwidth server omits subscription status if
         // `SubscribedStatus = 0`
         subscribed: b.s || SubscribedStatus.NoSubscriber,
-        at: new Date(b.t * 1000),
+        at: new Date(b.t),
       }
     }
     return bans
