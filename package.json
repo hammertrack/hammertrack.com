@@ -1,0 +1,28 @@
+{
+  "name": "hammertrack.com",
+  "author": "Pedro M. M.",
+  "version": "1.0.0-alpha",
+  "main": "index.js",
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.37",
+    "@tsconfig/svelte": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.18.0",
+    "eslint": "^8.10.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-svelte3": "^3.4.1",
+    "prettier": "^2.5.1",
+    "prettier-plugin-svelte": "^2.6.0",
+    "svelte": "^3.46.4",
+    "svelte-navigator": "^3.1.5",
+    "svelte-preprocess": "^4.10.4",
+    "typescript": "^4.5.5",
+    "typescript-svelte-plugin": "^0.3.1",
+    "vite": "^2.8.4"
+  }
+}

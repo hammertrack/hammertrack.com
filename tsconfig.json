@@ -1,0 +1,35 @@
+{
+  "baseUrl": "./src",
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "compilerOptions": {
+    "module": "ES2020",
+    "paths": {
+      "~/*": [
+        "./src/*"
+      ]
+    },
+    "lib": [
+      "DOM",
+      "ES2017",
+      "WebWorker"
+    ],
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "importsNotUsedAsValues": "remove",
+    "strict": true,
+    "plugins": [
+      {
+        "name": "typescript-svelte-plugin"
+      }
+    ]
+  },
+  "include": [
+    "src/**/*",
+    "src/node_modules/**/*"
+  ],
+  "exclude": [
+    "node_modules/*",
+    "__sapper__/*",
+    "static/*"
+  ]
+}
