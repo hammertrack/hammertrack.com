@@ -46,14 +46,13 @@ function createProgressFunc(progressStore: Writable<number>) {
   }
 }
 
-// fetchWithProgress is a store that takes a initial value of type `T` and
+// fetchWithProgress is a store that takes an initial value of type `T` and
 // returns three stores: one with the results, a second one with the progress of the
 // fetch operation and a third one with a boolean that will be equal to `true`
 // during the fetching process
 //
-// The results store has a `fetch(url: string)` method to fetch
-// for the results and the progress store will update automatically during the
-// fetching.
+// The results store has a `fetch(url: string)` method to fetch for the results
+// and the progress store will be updated automatically while fetching.
 //
 // If a format function is passed down as a second argument to
 // fetchWithProgress, the results will be formatted with the provided function
@@ -63,7 +62,7 @@ function createProgressFunc(progressStore: Writable<number>) {
 // parsing and network errors.
 export function fetchWithProgress<T>(
   initial: T,
-  formatResults?: (resp: unknown) => T
+  formatFunc?: (resp: unknown) => T
 ): [FetchWithProgressStore<T>, Tweened<number>, Writable<boolean>] {
   const results = writable(initial)
   const progress = tweened(0, {
@@ -80,8 +79,8 @@ export function fetchWithProgress<T>(
       fetch: async (url) => {
         isFetching.set(true)
         let raw: T = await http<T>(url, createProgressFunc(progress))
-        if (typeof formatResults === 'function') {
-          raw = formatResults(raw)
+        if (typeof formatFunc === 'function') {
+          raw = formatFunc(raw)
         }
         set(raw)
         isFetching.set(false)
