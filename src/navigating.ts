@@ -31,19 +31,24 @@ export enum Navs {
 export const NavbarItems = [
   {
     name: Navs.Search,
-    label: 'New search [^S]',
+    title: 'Start a new search',
+    label: 'New search',
+    keyLabel: '[^S]',
     action: handleSearch,
     mapping: Keys.s,
   },
   {
     name: Navs.Tracking,
-    label: 'Tracked channels [^T]',
+    title: 'See the list of tracked channels',
+    label: 'Tracked channels',
+    keyLabel: '[^T]',
     action: handleTrackingChannels,
     mapping: Keys.t,
   },
   {
     name: Navs.About,
-    label: 'About [^A]',
+    label: 'About',
+    keyLabel: '[^A]',
     action: handleAbout,
     mapping: Keys.a,
   },

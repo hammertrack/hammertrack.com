@@ -3,7 +3,9 @@ import type { MappingsParam } from '~/actions'
 
 export type Nav = {
   name: string
+  title: string
   label: string
+  keyLabel: string
   action: (modifiers: CbParam) => void
   mapping: Keys
 }

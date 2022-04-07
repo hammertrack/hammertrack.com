@@ -4,6 +4,7 @@
   import { navbar } from '~/stores/navbar'
   import { getNav } from '~/components/Nav'
   import { Navs } from '~/navigating'
+  import Frame from '../Frame'
 
   let input: string
   let mode = SearchModes.Channel
@@ -28,22 +29,34 @@
   })
 </script>
 
-<input
-  bind:value={input}
-  use:focus
-  class="search-input"
-  type="text"
-  autocorrect="off"
-  spellcheck="false"
-  title="Type a twitch channel or user to search the database for bans"
-/>
-<button class:active={mode == Channel} on:click={() => switchMode(Channel)}>
-  Channel
-</button>
-<button class:active={mode == User} on:click={() => switchMode(User)}>
-  User
-</button>
-<button on:click={handleSearch}>Run search</button>
+<Frame size="dialog" title="database search">
+  <input
+    bind:value={input}
+    use:focus
+    class="search-input"
+    type="text"
+    autocorrect="off"
+    spellcheck="false"
+    title="Type a twitch channel or user to search the database for bans"
+  />
+  <button
+    class:active={mode == Channel}
+    on:click={() => switchMode(Channel)}
+    title="Switch to Channel mode - search recent bans in a channel"
+  >
+    Channel
+  </button>
+  <button
+    class:active={mode == User}
+    on:click={() => switchMode(User)}
+    title="Switch to User mode - search user's bans across all channels"
+  >
+    User
+  </button>
+  <button on:click={handleSearch} title="Execute search against database"
+    >Run search</button
+  >
+</Frame>
 
 <style>
   .search-input {
