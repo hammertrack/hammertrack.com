@@ -3,7 +3,7 @@
 
   import Search from '~/components/Search'
   import Results from '~/components/Results'
-  import Nav, { createMappingsConfig, item } from './components/Nav'
+  import Nav, { createMappingsConfig, nav } from './components/Nav'
 
   import { globalKeyBindings } from './actions/keyBindings'
   import { navbar } from './stores/navbar'
@@ -13,7 +13,7 @@
 
   navbar.set({
     left: [],
-    right: [item(NavbarNames.Tracking), item(NavbarNames.About)],
+    right: [nav(NavbarNames.Tracking), nav(NavbarNames.About)],
   })
 </script>
 
