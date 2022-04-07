@@ -21,6 +21,9 @@ module.exports = {
     {
       files: ['*.svelte'],
       processor: 'svelte3/svelte3',
+      rules: {
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+      },
     },
   ],
   settings: {
@@ -36,6 +39,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/no-inferrable-types': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/no-explicit-any': 1,
     // 'import/no-unresolved': 'error',
   },
 }

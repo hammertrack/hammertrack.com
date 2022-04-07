@@ -17,6 +17,7 @@
     "esModuleInterop": true,
     "importsNotUsedAsValues": "remove",
     "strict": true,
+    "noImplicitAny": true,
     "plugins": [
       {
         "name": "typescript-svelte-plugin"
