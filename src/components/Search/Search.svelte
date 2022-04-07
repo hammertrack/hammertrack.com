@@ -1,6 +1,9 @@
 <script lang="ts">
   import { navigate, useFocus } from 'svelte-navigator'
   import { modeToRoutes, SearchModes } from '~/lib/search'
+  import { navbar } from '~/stores/navbar'
+  import { getNav } from '~/components/Nav'
+  import { Navs } from '~/navigating'
 
   let input: string
   let mode = SearchModes.Channel
@@ -18,6 +21,11 @@
   function switchMode(target: SearchModes) {
     mode = target
   }
+
+  navbar.set({
+    left: [],
+    right: [getNav(Navs.Tracking), getNav(Navs.About)],
+  })
 </script>
 
 <input

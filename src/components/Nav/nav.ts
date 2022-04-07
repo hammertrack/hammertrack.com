@@ -15,7 +15,7 @@ export type Navbar = {
 
 const cachedItems: Record<string, Nav> = {}
 
-export function nav(name: string): Nav {
+export function getNav(name: string): Nav {
   return cachedItems[name]
 }
 

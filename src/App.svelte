@@ -3,18 +3,11 @@
 
   import Search from '~/components/Search'
   import Results from '~/components/Results'
-  import Nav, { createMappingsConfig, nav } from './components/Nav'
+  import Nav, { createMappingsConfig } from './components/Nav'
 
   import { globalKeyBindings } from './actions/keyBindings'
-  import { navbar } from './stores/navbar'
-  import { Navs } from './navigating'
 
   export let url = ''
-
-  navbar.set({
-    left: [],
-    right: [nav(Navs.Tracking), nav(Navs.About)],
-  })
 </script>
 
 <app use:globalKeyBindings={createMappingsConfig()}>
