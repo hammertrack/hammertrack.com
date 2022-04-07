@@ -22,7 +22,7 @@ function handleSearch(modifiers: CbParam) {
   navigate('/', { replace: true })
 }
 
-export enum NavbarNames {
+export enum Navs {
   Search = 'search',
   Tracking = 'tracking',
   About = 'about',
@@ -30,19 +30,19 @@ export enum NavbarNames {
 
 export const NavbarItems = [
   {
-    name: NavbarNames.Search,
+    name: Navs.Search,
     label: 'New search [^S]',
     action: handleSearch,
     mapping: Keys.s,
   },
   {
-    name: NavbarNames.Tracking,
+    name: Navs.Tracking,
     label: 'Tracked channels [^T]',
     action: handleTrackingChannels,
     mapping: Keys.t,
   },
   {
-    name: NavbarNames.About,
+    name: Navs.About,
     label: 'About [^A]',
     action: handleAbout,
     mapping: Keys.a,

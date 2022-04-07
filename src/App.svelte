@@ -7,13 +7,13 @@
 
   import { globalKeyBindings } from './actions/keyBindings'
   import { navbar } from './stores/navbar'
-  import { NavbarNames } from './navigating'
+  import { Navs } from './navigating'
 
   export let url = ''
 
   navbar.set({
     left: [],
-    right: [nav(NavbarNames.Tracking), nav(NavbarNames.About)],
+    right: [nav(Navs.Tracking), nav(Navs.About)],
   })
 </script>
 
