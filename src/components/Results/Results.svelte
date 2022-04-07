@@ -3,13 +3,7 @@
   import { useLocation } from 'svelte-navigator'
 
   import { fetchWithProgress } from '~/lib/fetch-progress'
-  import {
-    getURL,
-    format,
-    type Ban,
-    extractModeFromPath,
-    SearchModes,
-  } from '~/lib/search'
+  import { getURL, format, type Ban, extractModeFromPath } from '~/lib/search'
 
   const location = useLocation()
   const initialResults: Ban[] = []
@@ -27,7 +21,7 @@
 
   onMount(async () => {
     try {
-      await results.fetch(getURL({ username, mode: <SearchModes>mode }))
+      await results.fetch(getURL({ username, mode }))
     } catch (e) {
       handleError(<Error>e)
     }

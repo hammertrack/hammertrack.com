@@ -1,10 +1,12 @@
 <script lang="ts">
-  import { navigate } from 'svelte-navigator'
+  import { navigate, useFocus } from 'svelte-navigator'
   import { modeToRoutes, SearchModes } from '~/lib/search'
 
   let input: string
   let mode = SearchModes.Channel
   const { User, Channel } = SearchModes
+
+  const focus = useFocus()
 
   function handleSearch() {
     if (!input) {
@@ -18,7 +20,15 @@
   }
 </script>
 
-<input type="text" bind:value={input} />
+<input
+  bind:value={input}
+  use:focus
+  class="search-input"
+  type="text"
+  autocorrect="off"
+  spellcheck="false"
+  title="Type a twitch channel or user to search the database for bans"
+/>
 <button class:active={mode == Channel} on:click={() => switchMode(Channel)}>
   Channel
 </button>
@@ -28,6 +38,9 @@
 <button on:click={handleSearch}>Run search</button>
 
 <style>
+  .search-input {
+    background-color: var(--c-primary);
+  }
   button.active {
     background-color: black;
     color: white;

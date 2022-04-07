@@ -1,3 +1,4 @@
+import { extractPageFromPath } from '~/lib/utils'
 import { SearchModes, HTURL, routeToModes } from './constants'
 import { type Cursor } from './fetch'
 
@@ -30,15 +31,6 @@ export function getURL(req: BanRequest): string {
   return url
 }
 
-class ExtractPathError extends Error {
-  name = 'ExtractError'
-  message = 'Error while extracting path'
-}
-
 export function extractModeFromPath(path: string): SearchModes {
-  const parts = path.split('/')
-  if (parts.length < 2) {
-    throw new ExtractPathError()
-  }
-  return routeToModes[parts[1]]
+  return routeToModes[extractPageFromPath(path)]
 }
